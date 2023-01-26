@@ -194,7 +194,7 @@ contains
             call cg_iric_write_sol_grid2d_coords(file_id, x_grid, y_grid, ier)
 
             ! 計算結果を出力
-            call cg_iric_write_sol_node_real(file_id, "Elevation", elevation, ier)
+            call cg_iric_write_sol_node_real(file_id, "Elevation(m)", elevation, ier)
             call cg_iric_write_sol_node_real(file_id, "WaterSurfaceElevation(m)", Water_Surface_Elevation, ier)
             call cg_iric_write_sol_node_real(file_id, "Depth(m)", Depth, ier)
 
