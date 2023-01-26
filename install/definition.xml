@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ============================================
+ ソルバーの基本情報
+============================================= -->
+<SolverDefinition
+  name="Grid_tester"
+  caption="Grid Tester"
+  version="1.0.230126"
+  copyright="Keita Hoshino"
+  release="2023.01.26"
+  homepage=""
+  executable="Grid_tester.exe"
+  iterationtype="time"
+  gridtype="structured2d"
+>
+
+    <!-- ============================================
+     計算条件の定義
+    ============================================= -->
+    <CalculationCondition>
+        <Tab name = "setting" caption = "setting">
+            <Item name="time_step" caption="time step">
+                <Definition valueType="real" default="0.0">
+                </Definition>
+            </Item>
+            <Item name="time_end" caption="End Time">
+                <Definition valueType="real" default="0.0">
+                </Definition>
+            </Item>
+        </Tab>
+    </CalculationCondition>
+    
+    <!-- ============================================
+     格子属性の定義
+    ============================================= -->
+    <GridRelatedCondition>
+        <Item name="Elevation" caption="Elevation">
+            <Definition position="node" valueType="real" default="max" />
+        </Item>
+    </GridRelatedCondition>
+
+</SolverDefinition>
