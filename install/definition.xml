@@ -6,7 +6,7 @@
 <SolverDefinition
   name="Grid_tester"
   caption="Grid Tester"
-  version="1.0.230126"
+  version="1.0.23012602"
   copyright="Keita Hoshino"
   release="2023.01.26"
   homepage=""
@@ -19,13 +19,25 @@
      計算条件の定義
     ============================================= -->
     <CalculationCondition>
-        <Tab name = "setting" caption = "setting">
-            <Item name="time_step" caption="time step">
-                <Definition valueType="real" default="0.0">
+        <Tab name = "readme" caption = "readme">
+            <Label caption="・No need to set anything.
+・Just run the calculation and the grid elevation will be output.
+・Bonus features are optional." />
+        </Tab>
+        <Tab name = "omake" caption = "omake mode">
+            <Item name="omake" caption="omake mode">
+                <Definition valueType="integer" default="0" checkBox="true" />
+            </Item>
+            <Item name="time_step" caption="time step of output">
+                <Definition valueType="real" default="1">
+                <Condition type="isEqual" target="omake" value="1" />
                 </Definition>
             </Item>
-            <Item name="time_end" caption="End Time">
-                <Definition valueType="real" default="0.0">
+            <Item name="Water_level" caption="Water level">
+                <Definition valueType="functional" >
+                    <Parameter valueType="real" caption="Time(sec)" />
+                    <Value valueType="real" caption="Water level" />
+                    <Condition type="isEqual" target="omake" value="1" />
                 </Definition>
             </Item>
         </Tab>
@@ -38,6 +50,7 @@
         <Item name="Elevation" caption="Elevation">
             <Definition position="node" valueType="real" default="max" />
         </Item>
+
     </GridRelatedCondition>
 
 </SolverDefinition>
