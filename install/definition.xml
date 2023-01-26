@@ -28,15 +28,15 @@
             <Item name="omake" caption="omake mode">
                 <Definition valueType="integer" default="0" checkBox="true" />
             </Item>
-            <Item name="time_step" caption="time step of output">
+            <Item name="time_step" caption="time step of output(sec)">
                 <Definition valueType="real" default="1">
                 <Condition type="isEqual" target="omake" value="1" />
                 </Definition>
             </Item>
-            <Item name="Water_level" caption="Water level">
+            <Item name="Water_level" caption="Water level(m)">
                 <Definition valueType="functional" >
                     <Parameter valueType="real" caption="Time(sec)" />
-                    <Value valueType="real" caption="Water level" />
+                    <Value valueType="real" caption="Water level(m)" />
                     <Condition type="isEqual" target="omake" value="1" />
                 </Definition>
             </Item>
@@ -47,10 +47,9 @@
      格子属性の定義
     ============================================= -->
     <GridRelatedCondition>
-        <Item name="Elevation" caption="Elevation">
+        <Item name="Elevation" caption="Elevation(m)">
             <Definition position="node" valueType="real" default="max" />
         </Item>
-
     </GridRelatedCondition>
 
 </SolverDefinition>
