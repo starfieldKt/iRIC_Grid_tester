@@ -1,0 +1,5 @@
+﻿It is a solver that outputs the elevation of the created grid as it is to the calculation result.
+
+It is used to output the calculation results for the time being when you want to use the graph window of the post processor that cannot be used without the calculation results.
+
+It has the function of giving a constant water level throughout the grid. If the water level is lower than the bed height, the bed height is given.
