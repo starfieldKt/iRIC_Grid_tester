@@ -3,3 +3,9 @@
 It is used to output the calculation results for the time being when you want to use the graph window of the post processor that cannot be used without the calculation results.
 
 It has the function of giving a constant water level throughout the grid. If the water level is lower than the bed height, the bed height is given.
+
+2023.01.26 ver.1.0.23013101
+·When the water surface elevation is lower than the riverbed height, it is now possible to select whether or not to adjust the elevation to the riverbed height.
+
+2023.01.26 ver.1.0.23012602
+·Release

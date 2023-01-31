@@ -6,9 +6,9 @@
 <SolverDefinition
   name="Grid_tester"
   caption="Grid Tester"
-  version="1.0.23012602"
+  version="1.0.23013101"
   copyright="Keita Hoshino"
-  release="2023.01.26"
+  release="2023.01.31"
   homepage=""
   executable="Grid_tester.exe"
   iterationtype="time"
@@ -40,6 +40,16 @@
                     <Condition type="isEqual" target="omake" value="1" />
                 </Definition>
             </Item>
+            <Item name="WS_Elv_adjustment" caption="Water Surface Elevation adjustment">
+                    <Definition valueType="integer" default="0">
+                        <Enumeration value="0" caption="0.No adjust"/>
+                        <Enumeration value="1" caption="1.adjust"/>
+                    </Definition>
+            </Item>
+            <GroupBox caption="Adjustment method">
+                <Label caption="If the water level is lower than the riverbed height at any grid point, the elevation of the water surface is corrected to the riverbed height." />
+            </GroupBox>
+
         </Tab>
     </CalculationCondition>
     

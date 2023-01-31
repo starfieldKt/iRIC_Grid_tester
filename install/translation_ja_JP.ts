@@ -44,5 +44,29 @@
             <source>Elevation(m)</source>
             <translation>地形高(m)</translation>
         </message>
+        <message>
+            <source>Water level(m)</source>
+            <translation>水位(m)</translation>
+        </message>
+        <message>
+            <source>Water Surface Elevation adjustment</source>
+            <translation>水面形の補正</translation>
+        </message>
+        <message>
+            <source>0.No adjust</source>
+            <translation>0.補正しない</translation>
+        </message>
+        <message>
+            <source>1.adjust</source>
+            <translation>1.補正する</translation>
+        </message>
+        <message>
+            <source>Adjustment method</source>
+            <translation>補正方法</translation>
+        </message>
+        <message>
+            <source>If the water level is lower than the riverbed height at any grid point, the elevation of the water surface is corrected to the riverbed height.</source>
+            <translation>任意の格子点において水位が河床高よりも低い場合、水面の標高を河床高へ補正する。</translation>
+        </message>
     </context>
 </TS>

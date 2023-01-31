@@ -14,7 +14,7 @@ program grid_tester
     double precision, dimension(:,:), allocatable:: x_grid, y_grid
     double precision, dimension(:,:), allocatable:: elevation
 
-    integer:: omake, Water_level_size
+    integer:: omake, Water_level_size, WS_Elv_adjustment
     double precision:: time, time_step ,tmp_Water_level_value
     double precision, dimension(:), allocatable:: Water_level_time, Water_level_value
     double precision, dimension(:,:), allocatable:: Water_Surface_Elevation, Depth
@@ -143,6 +143,8 @@ contains
         ! 水位のデータを読み込み
         call cg_iric_read_functional(file_id, "Water_level", Water_level_time, Water_level_value, ier)
 
+        call cg_iric_read_integer(file_id, "WS_Elv_adjustment", WS_Elv_adjustment, ier)
+
         !--------------------------------------------------------------------------
         ! メインループ
         !--------------------------------------------------------------------------
@@ -181,6 +183,10 @@ contains
 
                 end do
             end do
+
+            if (WS_Elv_adjustment == 0) then
+                Water_Surface_Elevation = tmp_Water_level_value
+            end if
 
             !----------------------------------------------------------------------
             ! 出力
