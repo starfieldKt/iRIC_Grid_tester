@@ -115,9 +115,6 @@ contains
         ! 時間を出力
         call cg_iric_write_sol_time(file_id, time, ier)
 
-        ! 格子を出力
-        call cg_iric_write_sol_grid2d_coords(file_id, x_grid, y_grid, ier)
-
         ! 計算結果を出力
         call cg_iric_write_sol_node_real(file_id, "Elevation", elevation, ier)
 
@@ -195,9 +192,6 @@ contains
             call cg_iric_write_sol_start(file_id, ier)
             ! 時間を出力
             call cg_iric_write_sol_time(file_id, time - Water_level_time(1), ier)
-
-            ! 格子を出力
-            call cg_iric_write_sol_grid2d_coords(file_id, x_grid, y_grid, ier)
 
             ! 計算結果を出力
             call cg_iric_write_sol_node_real(file_id, "Elevation(m)", elevation, ier)
