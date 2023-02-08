@@ -6,9 +6,9 @@
 <SolverDefinition
   name="Grid_tester"
   caption="Grid Tester"
-  version="1.0.23013101"
+  version="1.0.23020801"
   copyright="Keita Hoshino"
-  release="2023.01.31"
+  release="2023.02.08"
   homepage=""
   executable="Grid_tester.exe"
   iterationtype="time"
