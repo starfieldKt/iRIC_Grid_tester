@@ -6,51 +6,71 @@
 <SolverDefinition
   name="Grid_tester"
   caption="Grid Tester"
-  version="1.0.23020801"
+  version="1.1.23060501"
   copyright="Keita Hoshino"
-  release="2023.02.08"
+  release="2023.06.05"
   homepage=""
   executable="Grid_tester.exe"
   iterationtype="time"
-  gridtype="structured2d"
+  gridtype="structured2d,unstructured2d"
 >
 
     <!-- ============================================
      計算条件の定義
     ============================================= -->
     <CalculationCondition>
-        <Tab name = "readme" caption = "readme">
-            <Label caption="・No need to set anything." />
-            <Label caption="・Just run the calculation and the grid elevation will be output." />
-            <Label caption="・Bonus features are optional." />
-        </Tab>
-        <Tab name = "omake" caption = "omake mode">
-            <Item name="omake" caption="omake mode">
-                <Definition valueType="integer" default="0" checkBox="true" />
-            </Item>
-            <Item name="time_step" caption="time step of output(sec)">
-                <Definition valueType="real" default="1">
-                <Condition type="isEqual" target="omake" value="1" />
+
+        <Tab name = "setting" caption = "setting">
+
+            <Item name="grid_type" caption="grid type">
+                <Definition valueType="integer" default="0">
+                    <Enumeration value="0" caption="0.structured"/>
+                    <Enumeration value="1" caption="1.unstructured"/>
                 </Definition>
             </Item>
-            <Item name="Water_level" caption="Water level(m)">
-                <Definition valueType="functional" >
-                    <Parameter valueType="real" caption="Time(sec)" />
-                    <Value valueType="real" caption="Water level(m)" />
+
+            <GroupBox caption="omake mode">
+                <Item name="omake" caption="omake mode">
+                    <Definition valueType="integer" default="0" checkBox="true" />
+                </Item>
+                <Item name="time_step" caption="time step of output(sec)">
+                    <Definition valueType="real" default="1">
                     <Condition type="isEqual" target="omake" value="1" />
-                </Definition>
-            </Item>
-            <Item name="WS_Elv_adjustment" caption="Water Surface Elevation adjustment">
-                    <Definition valueType="integer" default="0">
-                        <Enumeration value="0" caption="0.No adjust"/>
-                        <Enumeration value="1" caption="1.adjust"/>
                     </Definition>
-            </Item>
-            <GroupBox caption="Adjustment method">
-                <Label caption="If the water level is lower than the riverbed height at any grid point, the elevation of the water surface is corrected to the riverbed height." />
+                </Item>
+                <Item name="Water_level" caption="Water level(m)">
+                    <Definition valueType="functional" >
+                        <Parameter valueType="real" caption="Time(sec)" />
+                        <Value valueType="real" caption="Water level(m)" />
+                        <Condition type="isEqual" target="omake" value="1" />
+                    </Definition>
+                </Item>
+                <Item name="WS_Elv_adjustment" caption="Water Surface Elevation adjustment">
+                        <Definition valueType="integer" default="0">
+                            <Enumeration value="0" caption="0.No adjust"/>
+                            <Enumeration value="1" caption="1.adjust"/>
+                            <Condition type="isEqual" target="omake" value="1" />
+                        </Definition>
+                </Item>
+                <Item name="WS_Elv_adjustment_value" caption="Water Surface Elevation adjustment value">
+                        <Definition valueType="real" default="0.0">
+                            <Condition type="isEqual" target="omake" value="1" />
+                        </Definition>
+                </Item>
+
+                <GroupBox caption="Adjustment method">
+                    <Label caption='If the water level is lower than the riverbed elevation at any grid point, the water surface elevation is corrected to "riverbed elevation - adjustment value".' />
+                </GroupBox>
+
             </GroupBox>
 
         </Tab>
+        
+        <Tab name = "readme" caption = "readme">
+            <Label caption="・Just run the calculation and the grid elevation will be output." />
+            <Label caption="・Bonus features are optional." />
+        </Tab>
+
     </CalculationCondition>
     
     <!-- ============================================

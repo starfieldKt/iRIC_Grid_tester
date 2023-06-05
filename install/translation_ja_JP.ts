@@ -13,10 +13,6 @@
             <translation>説明</translation>
         </message>
         <message>
-            <source>・No need to set anything.</source>
-            <translation>・特に何も設定する必要はありません</translation>
-        </message>
-        <message>
             <source>・Just run the calculation and the grid elevation will be output.</source>
             <translation>・計算を実行れば計算結果に格子と標高が出力されます</translation>
         </message>
@@ -61,12 +57,16 @@
             <translation>1.補正する</translation>
         </message>
         <message>
+            <source>Water Surface Elevation adjustment value</source>
+            <translation>補正値</translation>
+        </message>
+        <message>
             <source>Adjustment method</source>
             <translation>補正方法</translation>
         </message>
         <message>
-            <source>If the water level is lower than the riverbed height at any grid point, the elevation of the water surface is corrected to the riverbed height.</source>
-            <translation>任意の格子点において水位が河床高よりも低い場合、水面の標高を河床高へ補正する。</translation>
+            <source>If the water level is lower than the riverbed elevation at any grid point, the water surface elevation is corrected to "riverbed elevation - adjustment value".</source>
+            <translation>任意の格子点において水位が河床高よりも低い場合、水面の標高を「河床高－補正値」へ補正する。</translation>
         </message>
     </context>
 </TS>

@@ -4,6 +4,9 @@ It is used to output the calculation results for the time being when you want to
 
 It has the function of giving a constant water level throughout the grid. If the water level is lower than the bed height, the bed height is given.
 
+2023.06.05 ver.1.0.23060501
+* Supports unstructured grids
+
 2023.02.08 ver.1.0.23020801
 * Abolished the process of outputting the grid at each timestep.
 
