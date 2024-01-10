@@ -13,9 +13,11 @@ program grid_tester
     integer:: i_size, j_size  ! 格子点数
     integer:: n_node ! 格子点数
 
+    ! 構造格子用の変数
     double precision, dimension(:, :), allocatable:: x_grid_s, y_grid_s
     double precision, dimension(:, :), allocatable:: elevation_s, Water_Surface_Elevation_s, Depth_S
 
+    ! 非構造格子用の変数
     double precision, dimension(:), allocatable:: x_grid_u, y_grid_U
     double precision, dimension(:), allocatable:: elevation_u, Water_Surface_Elevation_u, Depth_u
 
@@ -55,6 +57,7 @@ program grid_tester
     !--------------------------------------------------------------------------
     write (*, *) '>>Start loading calculation conditions'
 
+    ! 読み込む格子が構造格子か非構造格子かを読み込み
     call cg_iric_read_integer(file_id, "grid_type", grid_type, ier)
 
     if (grid_type == 0) then
@@ -63,6 +66,7 @@ program grid_tester
         write (*, '(a)') '    >grid type is unstructured'
     end if
 
+    ! オマケ機能を使用するかを読み込み
     call cg_iric_read_integer(file_id, "omake", omake, ier)
 
     if (omake == 0) then
@@ -71,6 +75,7 @@ program grid_tester
         write (*, '(a)') '    >Omake mode is selected'
     end if
 
+    ! 水位の補正の有無
     call cg_iric_read_real(file_id, "WS_Elv_adjustment_value", WS_Elv_adjustment_value, ier)
 
     write (*, '(a)') '    >Completed loading calculation conditions'
